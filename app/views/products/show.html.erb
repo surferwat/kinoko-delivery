@@ -1,0 +1,70 @@
+<% content_for :title do %>
+  Product details
+<% end %>
+
+<div class="mt-8 max-w-3xl mx-auto grid grid-cols-1 gap-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-3">
+  
+    <div class="space-y-6 lg:col-start-1 lg:col-span-2">
+    
+    <!-- Description list-->
+    <section aria-labelledby="applicant-information-title">
+        
+      <!-- This example requires Tailwind CSS v2.0+ -->
+      <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+
+      <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+        <dl class="sm:divide-y sm:divide-gray-200">
+        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">Product name</dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @product.name %></dd>
+        </div>
+        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">Product description</dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @product.description %></dd>
+        </div>
+        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">Product kind</dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @product.kind %></dd>
+        </div>
+        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">Prefecture of origin</dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @product.prefecture_of_origin %></dd>
+        </div>
+        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">Price</dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @product.price%></dd>
+        </div>
+          <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">Price with tax</dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @product.price_with_tax%></dd>
+        </div>
+        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">Items per unit</dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @product.items_per_unit%></dd>
+        </div>
+          <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">Weight per unit</dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @product.weight_per_unit%></dd>
+        </div>
+        
+      </div>
+
+    </section>
+  </div>
+
+  <section aria-labelledby="timeline-title" class="lg:col-start-3 lg:col-span-1">
+    <div class="bg-white px-4 py-5 shadow sm:rounded-lg sm:px-6">
+      <h2 id="timeline-title" class="text-lg font-medium text-gray-900">Action panel</h2>
+      
+      <ul role="list" class="divide-y divide-gray-200">
+        <li class="py-4 flex">
+          <%= tailwind_primary_link_to "Edit product", edit_product_path(@product) %>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+</div>
+
+

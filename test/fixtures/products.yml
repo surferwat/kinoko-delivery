@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  type: 
+  prefecture_of_origin: 1
+  price: 9.99
+  items_per_unit: 1
+  weight_per_unit: 9.99
+
+two:
+  name: MyString
+  description: MyText
+  type: 
+  prefecture_of_origin: 1
+  price: 9.99
+  items_per_unit: 1
+  weight_per_unit: 9.99

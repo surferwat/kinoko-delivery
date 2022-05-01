@@ -1,0 +1,66 @@
+<% content_for :title do %>
+  Boxes
+<% end %>
+
+<div class="mt-8 max-w-3xl mx-auto grid grid-cols-1 gap-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-3">
+  <div class="space-y-6 lg:col-start-1 lg:col-span-2">
+    <section aria-labelledby="applicant-information-title">
+      <div class="px-4 sm:px-0">
+        <div class="-mx-4 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:-mx-6 md:mx-0 md:rounded-lg">
+          <table class="min-w-full divide-y divide-gray-300">
+            <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Id #</th>
+                <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Product name</th>
+                <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Delivery location</th>
+                <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Number of units</th>
+                <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Preorders count</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 bg-white">
+              <% @boxes.each do |box| %>
+                <tr>
+                  <td class="w-full max-w-0 py-4 pl-4 pr-3 text-sm text-gray-900 sm:w-auto sm:max-w-none sm:pl-6">
+                    <%= box.id %>
+                    <dl class="lg:hidden">
+                      <dt class="sr-only">Product name</dt>
+                      <dd class="mt-1 truncate text-gray-700"><%= box.product.name %></dd>
+                      <dt class="sr-only sm:hidden">Delivery location</dt>
+                      <dd class="mt-1 truncate text-gray-700 sm:hidden"><%= box.delivery_location %></dd>
+                      <dt class="sr-only sm:hidden">Number of units</dt>
+                      <dd class="mt-1 truncate text-gray-700 sm:hidden"><%= box.units_number %></dd>
+                      <dt class="sr-only sm:hidden">Preorders count</dt>
+                      <dd class="mt-1 truncate text-gray-700 sm:hidden"><%= box.preorders_count %></dd>
+                    </dl>
+                  </td>
+                  <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell"><%= box.product.name %></td>
+                  <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell"><%= box.delivery_location %></td>
+                  <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell"><%= box.units_number %></td>
+                  <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell"><%= box.preorders_count %></td>
+                  <td class="px-3 py-4 text-sm text-gray-500"><%= box.status %></td>
+                </tr>
+              <% end %>
+
+              <!-- More people... -->
+            </tbody>
+          </table>
+        </div>
+      </div>      
+    </section>
+  </div>
+
+  <section aria-labelledby="timeline-title" class="lg:col-start-3 lg:col-span-1">
+    <div class="bg-white px-4 py-5 shadow sm:rounded-lg sm:px-6">
+      <h2 id="timeline-title" class="text-lg font-medium text-gray-900">Action panel</h2>
+      
+      <ul role="list" class="divide-y divide-gray-200">
+        <li class="py-4 flex">
+          <%= tailwind_primary_link_to "Create box", new_box_path %>
+        </li>
+      </ul>
+
+    </div>
+</section>
+
+</div>

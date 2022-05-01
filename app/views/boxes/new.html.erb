@@ -1,0 +1,91 @@
+<% content_for :title do %>
+  Create a box
+<% end %>
+
+<div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+      <%= form_with class: "space-y-6", model: @box, builder: TailwindFormHelper::TailwindFormBuilder, url: boxes_path do |form| %>
+        
+        <%= render partial: "shared/form_errors", locals: { form: form } %>
+
+        <fieldset data-controller="element">
+          <%= form.label :company_id %>
+          <div class="mt-1">
+             <% company_objects_array = @companies.map { |company| [company.name, company.id] } %>
+            <%= form.select :company_id, 
+              options_for_select(company_objects_array), 
+              {include_blank: "Select company", autocomplete: "off"}, 
+              class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm", 
+              data: { action: "change->element#click" } 
+            %>
+          </div>
+          <noscript>
+            <button formmethod="get" formaction="<%= new_box_path %>">Select company</button>
+          </noscript>
+          <button formmethod="get" formaction="<%= new_box_path %>" hidden data-element-target="click" data-turbo-frame="<%= form.field_id(:product, :turbo_frame) %>"></button>
+        </fieldset>
+
+        <fieldset>
+          <turbo-frame id="<%= form.field_id(:product, :turbo_frame) %>">
+            <%= form.label :product_id %>
+            <div class="mt-1">
+              <% product_objects_array = @products.map { |product| [product.name, product.id] } %>
+              <%= form.select :product_id, 
+                options_for_select(product_objects_array), 
+                {include_blank: "Select product", autocomplete: "off"}, 
+                class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm", 
+                data: { action: "change->element#click" } 
+              %>
+            </div>
+          </turbo-frame>
+        </fieldset>
+       
+        <fieldset>
+          <%= form.label :units_number %>
+          <div class="mt-1">
+            <%= form.text_field :units_number %>
+          </div>
+        </fieldset>
+
+         <fieldset>
+          <%= form.label :delivery_location %>
+          <div class="mt-1">
+            <%= form.select :delivery_location, 
+              options_for_select(Box.delivery_locations.keys),
+              include_blank: "Select location", 
+              class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm" 
+            %>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <%= form.label :bulk_delivery_fee %>
+          <div class="mt-1">
+            <%= form.text_field :bulk_delivery_fee %>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <%= form.label :single_delivery_fee %>
+          <div class="mt-1">
+            <%= form.text_field :single_delivery_fee %>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <%= form.label :ends_at, "Campaign end date" %>
+          <div class="mt-1">
+            <%= form.date_field :ends_at, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm" %>
+          </div>
+        </fieldset>
+      
+          <%= form.submit "Create box" %>
+
+      <% end %>
+
+       
+
+    </div>
+  </div>
+</div>

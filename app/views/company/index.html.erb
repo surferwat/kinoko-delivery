@@ -1,0 +1,48 @@
+<% content_for :title do %>
+  Companies
+<% end %>
+ 
+<div class="mt-8 max-w-3xl mx-auto grid grid-cols-1 gap-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-3">
+  <div class="space-y-6 lg:col-start-1 lg:col-span-2">
+
+    <!-- Description list-->
+    <section aria-labelledby="applicant-information-title">
+      
+      <!-- This example requires Tailwind CSS v2.0+ -->
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+
+        <% @companies.each do |company| %>
+
+        <div class="relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+          <%# <div class="flex-shrink-0">
+            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+          </div> %>
+          <div class="flex-1 min-w-0">
+            <%= link_to company_path(company.id), class: "focus:outline-none" do %>
+              <span class="absolute inset-0" aria-hidden="true"></span>
+              <p class="text-sm font-medium text-gray-900"><%= company.name %></p>
+              <p class="text-sm text-gray-500 truncate"><%= company.url %></p>
+            <% end %>
+          </div>
+        </div>
+
+        <% end %>
+      </div>
+
+      </section>
+    </div>
+
+    <section aria-labelledby="timeline-title" class="lg:col-start-3 lg:col-span-1">
+      <div class="bg-white px-4 py-5 shadow sm:rounded-lg sm:px-6">
+        <h2 id="timeline-title" class="text-lg font-medium text-gray-900">Action panel</h2>
+        
+        <ul role="list" class="divide-y divide-gray-200">
+          <li class="py-4 flex">
+            <%= tailwind_primary_link_to "Add company", new_company_path %>
+          </li>
+        </ul>
+
+      </div>
+    </section>
+  
+</div>

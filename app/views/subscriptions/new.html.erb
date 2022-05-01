@@ -1,0 +1,16 @@
+ <%= turbo_frame_tag "new_subscription" do %>
+    <%= form_with class: "mt-12 sm:mx-auto sm:max-w-lg", model: @subscription, url: subscriptions_path do |form| %>
+        <%= render partial: "shared/form_errors", locals: { form: form } %>
+        
+        <div class= sm:flex>
+            <div class="min-w-0 flex-1">
+                <%= form.label :email, class: "sr-only" %>
+                <%= form.text_field :email, placeholder: "メール", class: "block w-full border border-transparent rounded-md px-5 py-3 text-base text-slate-900 placeholder-slate-500 shadow-sm focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-600" %>
+            </div>
+
+            <div class="mt-4 sm:mt-0 sm:ml-3">
+                <%= form.submit "Subscribe", type: "submit", class: "block w-full rounded-md border border-transparent px-5 py-3 bg-red-400 text-base font-medium text-white shadow hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-600 sm:px-10" %>
+            </div>
+        </div>
+    <% end %>
+<% end %>

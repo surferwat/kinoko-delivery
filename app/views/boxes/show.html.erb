@@ -1,0 +1,83 @@
+<% content_for :title do %>
+  Box details
+<% end %>
+
+
+ 
+<div class="mt-8 max-w-3xl mx-auto grid grid-cols-1 gap-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-3">
+  
+  <div class="space-y-6 lg:col-start-1 lg:col-span-2">
+  
+  <!-- Description list-->
+  <section aria-labelledby="applicant-information-title">
+      
+    <!-- This example requires Tailwind CSS v2.0+ -->
+    <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+
+    <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+      <dl class="sm:divide-y sm:divide-gray-200">
+      <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">Box #</dt>
+        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @box.id %></dd>
+      </div>
+      <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">Product name</dt>
+        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @product.name %></dd>
+      </div>
+      <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">Company name</dt>
+        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @company.name %></dd>
+      </div>
+      <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">Number of units</dt>
+        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @box.units_number %></dd>
+      </div>
+      <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">Delivery location</dt>
+        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @box.delivery_location%></dd>
+      </div>
+        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">Bulk delivery fee</dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @box.bulk_delivery_fee %></dd>
+      </div>
+      <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">Single delivery fee</dt>
+        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @box.single_delivery_fee %></dd>
+      </div>
+        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">Campaign end date</dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @box.ends_at%></dd>
+      </div>
+        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">Campaign closed date</dt>
+        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @box.closed_at%></dd>
+      </div>
+      <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">Preorders count</dt>
+        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @box.preorders_count%></dd>
+      </div>
+      <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">Status</dt>
+        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @box.status%></dd>
+      </div>
+    </div>
+
+    </section>
+  </div>
+
+  <section aria-labelledby="timeline-title" class="lg:col-start-3 lg:col-span-1">
+    <div class="bg-white px-4 py-5 shadow sm:rounded-lg sm:px-6">
+      <h2 id="timeline-title" class="text-lg font-medium text-gray-900">Action panel</h2>
+      
+      <ul role="list" class="divide-y divide-gray-200">
+        <li class="py-4 flex">
+          <%= tailwind_primary_link_to "Delete box", "" %>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+</div>
+
+

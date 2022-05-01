@@ -1,0 +1,17 @@
+<% content_for :title do %>
+  Settings
+<% end %>
+
+<div class="mt-8 max-w-3xl mx-auto grid grid-cols-1 gap-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-3">
+  <ul class="space-y-2">
+    <li class="py-2 leading-none">
+      <%= link_to "My profile", edit_user_path %>
+    </li>
+    <li class="py-2 leading-none">
+      <%= link_to "My companies", companies_path  %>
+    </li>
+    <li class="py-2 leading-none">
+      <%= button_to "Logout", logout_path, method: :delete %>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,39 @@
+<% content_for :title do %>
+  Sign up
+<% end %>
+
+<div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+
+      <%= form_with class: "space-y-6", model: @user, builder: TailwindFormHelper::TailwindFormBuilder, url: sign_up_path do |form| %>
+        <%= render partial: "shared/form_errors", locals: { form: form } %>
+        
+        <div>
+          <%= form.label :email %>
+          <div class="mt-1">
+            <%= form.text_field :email, placeholder: "test@gmail.com" %>
+          </div>
+        </div>
+
+        <div>
+          <%= form.label :password %>
+          <div class="mt-1">
+            <%= form.password_field :password, placeholder: "password" %>
+          </div>
+        </div>
+
+        <div>
+          <%= form.label :password_confirmation %>
+          <div class="mt-1">
+            <%= form.password_field :password_confirmation, placeholder: "password" %>
+          </div>
+        </div>
+
+        <%= form.submit "Create account" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
